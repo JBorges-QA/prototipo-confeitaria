@@ -7,7 +7,8 @@ com os dados salvos no próprio navegador e as integrações (WhatsApp / Instagr
 > O nome **Flor de Açúcar** e o logotipo são provisórios. A logo definitiva do cliente substitui
 > o componente `<Logo />` em `src/components/brand.tsx` — todas as telas usam esse componente.
 
-**Demonstração online:** publicada na Netlify (painel em `/admin` — `admin@flordeacucar.com.br` / `doce2026`)
+**Demonstração online:** https://florconfeitaria.netlify.app/
+(painel em https://florconfeitaria.netlify.app/admin — `admin@flordeacucar.com.br` / `doce2026`)
 
 ## Como rodar
 
