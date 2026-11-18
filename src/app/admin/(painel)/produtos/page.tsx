@@ -1,5 +1,6 @@
 "use client";
 
+import { routes } from "@/config/routes";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Eye, EyeOff, Pencil, Plus, Search, Star, Tags, Trash2 } from "lucide-react";
@@ -97,10 +98,10 @@ export default function ProductsAdminPage() {
           <ul className="divide-y divide-cocoa-900/[0.06]">
             {list.map((p) => (
               <li key={p.id} className={cn("flex items-center gap-3 px-4 py-3 sm:gap-4 sm:px-5", !p.active && "opacity-55")}>
-                <Link href={`/admin/produtos/${p.id}`} className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
+                <Link href={routes.adminProduct(p.id)} className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
                   <ProductImage src={p.images[0]} alt={p.name} sizes="56px" />
                 </Link>
-                <Link href={`/admin/produtos/${p.id}`} className="min-w-0 flex-1">
+                <Link href={routes.adminProduct(p.id)} className="min-w-0 flex-1">
                   <p className="flex items-center gap-2 truncate font-bold">
                     {p.name}
                     {p.featured && <Star className="h-3.5 w-3.5 shrink-0 fill-gold-500 text-gold-500" />}
@@ -117,7 +118,7 @@ export default function ProductsAdminPage() {
                   <IconBtn label={p.active ? "Ocultar do cardápio" : "Mostrar no cardápio"} onClick={() => toggle(p, "active")}>
                     {p.active ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
                   </IconBtn>
-                  <Link href={`/admin/produtos/${p.id}`} className="grid h-9 w-9 place-items-center rounded-full text-cocoa-500 hover:bg-cocoa-900/5" aria-label="Editar">
+                  <Link href={routes.adminProduct(p.id)} className="grid h-9 w-9 place-items-center rounded-full text-cocoa-500 hover:bg-cocoa-900/5" aria-label="Editar">
                     <Pencil className="h-4 w-4" />
                   </Link>
                   <IconBtn label="Excluir" onClick={() => remove(p)} className="hidden hover:text-red-600 sm:grid">

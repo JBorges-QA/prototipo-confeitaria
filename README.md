@@ -7,6 +7,9 @@ com os dados salvos no próprio navegador e as integrações (WhatsApp / Instagr
 > O nome **Flor de Açúcar** e o logotipo são provisórios. A logo definitiva do cliente substitui
 > o componente `<Logo />` em `src/components/brand.tsx` — todas as telas usam esse componente.
 
+**Demonstração online:** https://jborges-qa.github.io/prototipo-confeitaria/
+(painel em `/admin` — `admin@flordeacucar.com.br` / `doce2026`)
+
 ## Como rodar
 
 ```bash
@@ -18,6 +21,15 @@ Acesse http://localhost:3000.
 Painel: http://localhost:3000/admin — `admin@flordeacucar.com.br` / senha `doce2026` (somente demonstração; configurável em `.env.local`).
 
 Outros comandos: `npm run build` (build de produção) · `npm run lint`.
+
+### Publicação da demonstração (GitHub Pages)
+
+A cada push na `main`, o workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml)
+gera um site estático (`STATIC_EXPORT=true`, pasta `out/`) e publica no GitHub Pages.
+Como a demo não tem servidor, os identificadores vão na query string
+(`/acompanhar?codigo=FA-1041`, `/admin/encomendas/detalhe?id=…`). Todas as URLs são montadas em
+[`src/config/routes.ts`](src/config/routes.ts), então voltar a rotas como `/pedido/[codigo]` na versão
+com servidor é uma mudança em um único arquivo.
 
 ### Roteiro sugerido para a apresentação
 

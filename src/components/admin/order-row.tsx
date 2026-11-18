@@ -1,5 +1,6 @@
 "use client";
 
+import { routes } from "@/config/routes";
 import Link from "next/link";
 import { ChevronRight, Store, Truck } from "lucide-react";
 import type { Order } from "@/domain/order";
@@ -12,7 +13,7 @@ export function OrderRow({ order, showDate = true }: { order: Order; showDate?: 
   const summary = order.items.map((i) => i.name).join(", ");
   return (
     <Link
-      href={`/admin/encomendas/${order.id}`}
+      href={routes.adminOrder(order.id)}
       className="group flex items-center gap-3 px-4 py-3.5 transition hover:bg-cream-50 sm:gap-4 sm:px-5"
     >
       {showDate && (

@@ -1,5 +1,6 @@
 "use client";
 
+import { routes } from "@/config/routes";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { AlertCircle, ArrowLeft, Lock, MapPin, ShoppingBag, Store, Truck } from "lucide-react";
@@ -75,7 +76,7 @@ export function CheckoutView() {
         notes: d.notes || undefined,
       });
       cart.clear();
-      router.push(`/pedido/${order.code}?novo=1`);
+      router.push(routes.orderTracking(order.code, { isNew: true }));
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : "Não foi possível enviar o pedido.");
       setSubmitting(false);

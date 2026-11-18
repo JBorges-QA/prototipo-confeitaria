@@ -1,5 +1,6 @@
 "use client";
 
+import { routes } from "@/config/routes";
 import Link from "next/link";
 import { ArrowRight, BellRing, CakeSlice, CalendarCheck, Wallet } from "lucide-react";
 import type { ReactNode } from "react";
@@ -51,7 +52,7 @@ export default function DashboardPage() {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
         <Card className="overflow-hidden">
-          <SectionHead title="Novos pedidos" href="/admin/encomendas?status=recebida" />
+          <SectionHead title="Novos pedidos" href={routes.adminOrders("recebida")} />
           {!orders ? (
             <ListSkeleton />
           ) : pending.length === 0 ? (

@@ -1,5 +1,6 @@
 "use client";
 
+import { routes } from "@/config/routes";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ChefHat, ChevronLeft, ChevronRight, Store, Truck } from "lucide-react";
@@ -136,7 +137,7 @@ function CalendarCard({ order }: { order: Order }) {
   const tone = ORDER_STATUS_META[order.status].tone;
   return (
     <Link
-      href={`/admin/encomendas/${order.id}`}
+      href={routes.adminOrder(order.id)}
       className={cn(
         "block rounded-xl border border-l-4 border-cocoa-900/[0.07] bg-cream-50 p-2.5 transition hover:bg-blush-100/60",
         toneBorder[tone],
