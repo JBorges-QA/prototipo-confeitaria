@@ -7,8 +7,7 @@ com os dados salvos no próprio navegador e as integrações (WhatsApp / Instagr
 > O nome **Flor de Açúcar** e o logotipo são provisórios. A logo definitiva do cliente substitui
 > o componente `<Logo />` em `src/components/brand.tsx` — todas as telas usam esse componente.
 
-**Demonstração online:** https://jborges-qa.github.io/prototipo-confeitaria/
-(painel em `/admin` — `admin@flordeacucar.com.br` / `doce2026`)
+**Demonstração online:** publicada na Netlify (painel em `/admin` — `admin@flordeacucar.com.br` / `doce2026`)
 
 ## Como rodar
 
@@ -22,10 +21,11 @@ Painel: http://localhost:3000/admin — `admin@flordeacucar.com.br` / senha `doc
 
 Outros comandos: `npm run build` (build de produção) · `npm run lint`.
 
-### Publicação da demonstração (GitHub Pages)
+### Publicação da demonstração (Netlify)
 
-A cada push na `main`, o workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml)
-gera um site estático (`STATIC_EXPORT=true`, pasta `out/`) e publica no GitHub Pages.
+O repositório está conectado à Netlify: a cada push na `main` ela roda o build definido em
+[`netlify.toml`](netlify.toml), que gera um site estático (`STATIC_EXPORT=true`, pasta `out/`) e publica.
+Para testar a mesma versão localmente: `STATIC_EXPORT=true npm run build` e sirva a pasta `out/`.
 Como a demo não tem servidor, os identificadores vão na query string
 (`/acompanhar?codigo=FA-1041`, `/admin/encomendas/detalhe?id=…`). Todas as URLs são montadas em
 [`src/config/routes.ts`](src/config/routes.ts), então voltar a rotas como `/pedido/[codigo]` na versão
